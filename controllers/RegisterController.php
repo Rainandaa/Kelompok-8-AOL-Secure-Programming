@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['register'])) {
     if ($stmt->execute()) {
         $_SESSION["success_message"] = "Registration successful. Silakan login.";
         header("Location: ../login.php");
+        $conn->close();
         exit();
     } else {
         $_SESSION["error_message"] = "Registration failed. Silakan coba lagi.";
@@ -64,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['register'])) {
     }
 } else {
     header("Location: ../login.php");
+    $conn->close();
     exit();
 }
 ?>
